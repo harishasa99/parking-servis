@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="haris_bazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="haris_bazaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Evidencijas" EntityType="haris_bazaModel.Evidencija" />
+    <EntitySet Name="ParkingMestoes" EntityType="haris_bazaModel.ParkingMesto" />
+    <EntitySet Name="Vozilas" EntityType="haris_bazaModel.Vozila" />
+  </EntityContainer>
+  <EntityType Name="Evidencija">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vlasnik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="br_tablica" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vreme_ulaza" Type="DateTime" Precision="3" />
+    <Property Name="vreme_izlaza" Type="DateTime" Precision="3" />
+    <Property Name="vreme_provedeno" Type="Int32" />
+    <Property Name="naplaceno" Type="Double" />
+  </EntityType>
+  <EntityType Name="ParkingMesto">
+    <Key>
+      <PropertyRef Name="brojMesta" />
+    </Key>
+    <Property Name="brojMesta" Type="Int32" Nullable="false" />
+    <Property Name="lokacija" Type="Int32" />
+    <Property Name="statusZauzetosti" Type="Boolean" />
+    <Property Name="vlasnik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="reg_broj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vreme_ulaska" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Vozila">
+    <Key>
+      <PropertyRef Name="kor_ime" />
+    </Key>
+    <Property Name="kor_ime" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="sifra" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="vlasnik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="br_tablica" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

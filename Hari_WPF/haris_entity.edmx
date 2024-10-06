@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="haris_bazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Evidencija">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vlasnik" Type="text" />
+          <Property Name="br_tablica" Type="text" />
+          <Property Name="tip_vozila" Type="text" />
+          <Property Name="vreme_ulaza" Type="datetime" />
+          <Property Name="vreme_izlaza" Type="datetime" />
+          <Property Name="vreme_provedeno" Type="int" />
+          <Property Name="naplaceno" Type="float" />
+        </EntityType>
+        <EntityType Name="ParkingMesto">
+          <Key>
+            <PropertyRef Name="brojMesta" />
+          </Key>
+          <Property Name="brojMesta" Type="int" Nullable="false" />
+          <Property Name="lokacija" Type="int" />
+          <Property Name="statusZauzetosti" Type="bit" />
+          <Property Name="vlasnik" Type="varchar" MaxLength="50" />
+          <Property Name="tip_vozila" Type="text" />
+          <Property Name="reg_broj" Type="text" />
+          <Property Name="vreme_ulaska" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vozila">
+          <Key>
+            <PropertyRef Name="kor_ime" />
+          </Key>
+          <Property Name="kor_ime" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="sifra" Type="text" />
+          <Property Name="vlasnik" Type="text" />
+          <Property Name="tip_vozila" Type="text" />
+          <Property Name="br_tablica" Type="text" />
+        </EntityType>
+        <EntityContainer Name="haris_bazaModelStoreContainer">
+          <EntitySet Name="Evidencija" EntityType="Self.Evidencija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkingMesto" EntityType="Self.ParkingMesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vozila" EntityType="Self.Vozila" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="haris_bazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="haris_bazaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Evidencijas" EntityType="haris_bazaModel.Evidencija" />
+          <EntitySet Name="ParkingMestoes" EntityType="haris_bazaModel.ParkingMesto" />
+          <EntitySet Name="Vozilas" EntityType="haris_bazaModel.Vozila" />
+        </EntityContainer>
+        <EntityType Name="Evidencija">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vlasnik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="br_tablica" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vreme_ulaza" Type="DateTime" Precision="3" />
+          <Property Name="vreme_izlaza" Type="DateTime" Precision="3" />
+          <Property Name="vreme_provedeno" Type="Int32" />
+          <Property Name="naplaceno" Type="Double" />
+        </EntityType>
+        <EntityType Name="ParkingMesto">
+          <Key>
+            <PropertyRef Name="brojMesta" />
+          </Key>
+          <Property Name="brojMesta" Type="Int32" Nullable="false" />
+          <Property Name="lokacija" Type="Int32" />
+          <Property Name="statusZauzetosti" Type="Boolean" />
+          <Property Name="vlasnik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="reg_broj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vreme_ulaska" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Vozila">
+          <Key>
+            <PropertyRef Name="kor_ime" />
+          </Key>
+          <Property Name="kor_ime" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="sifra" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="vlasnik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tip_vozila" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="br_tablica" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="haris_bazaModelStoreContainer" CdmEntityContainer="haris_bazaEntities">
+          <EntitySetMapping Name="Evidencijas">
+            <EntityTypeMapping TypeName="haris_bazaModel.Evidencija">
+              <MappingFragment StoreEntitySet="Evidencija">
+                <ScalarProperty Name="naplaceno" ColumnName="naplaceno" />
+                <ScalarProperty Name="vreme_provedeno" ColumnName="vreme_provedeno" />
+                <ScalarProperty Name="vreme_izlaza" ColumnName="vreme_izlaza" />
+                <ScalarProperty Name="vreme_ulaza" ColumnName="vreme_ulaza" />
+                <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+                <ScalarProperty Name="br_tablica" ColumnName="br_tablica" />
+                <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkingMestoes">
+            <EntityTypeMapping TypeName="haris_bazaModel.ParkingMesto">
+              <MappingFragment StoreEntitySet="ParkingMesto">
+                <ScalarProperty Name="vreme_ulaska" ColumnName="vreme_ulaska" />
+                <ScalarProperty Name="reg_broj" ColumnName="reg_broj" />
+                <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+                <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+                <ScalarProperty Name="statusZauzetosti" ColumnName="statusZauzetosti" />
+                <ScalarProperty Name="lokacija" ColumnName="lokacija" />
+                <ScalarProperty Name="brojMesta" ColumnName="brojMesta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vozilas">
+            <EntityTypeMapping TypeName="haris_bazaModel.Vozila">
+              <MappingFragment StoreEntitySet="Vozila">
+                <ScalarProperty Name="br_tablica" ColumnName="br_tablica" />
+                <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+                <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+                <ScalarProperty Name="sifra" ColumnName="sifra" />
+                <ScalarProperty Name="kor_ime" ColumnName="kor_ime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

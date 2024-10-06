@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="haris_bazaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Evidencija">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vlasnik" Type="text" />
+    <Property Name="br_tablica" Type="text" />
+    <Property Name="tip_vozila" Type="text" />
+    <Property Name="vreme_ulaza" Type="datetime" />
+    <Property Name="vreme_izlaza" Type="datetime" />
+    <Property Name="vreme_provedeno" Type="int" />
+    <Property Name="naplaceno" Type="float" />
+  </EntityType>
+  <EntityType Name="ParkingMesto">
+    <Key>
+      <PropertyRef Name="brojMesta" />
+    </Key>
+    <Property Name="brojMesta" Type="int" Nullable="false" />
+    <Property Name="lokacija" Type="int" />
+    <Property Name="statusZauzetosti" Type="bit" />
+    <Property Name="vlasnik" Type="varchar" MaxLength="50" />
+    <Property Name="tip_vozila" Type="text" />
+    <Property Name="reg_broj" Type="text" />
+    <Property Name="vreme_ulaska" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vozila">
+    <Key>
+      <PropertyRef Name="kor_ime" />
+    </Key>
+    <Property Name="kor_ime" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="sifra" Type="text" />
+    <Property Name="vlasnik" Type="text" />
+    <Property Name="tip_vozila" Type="text" />
+    <Property Name="br_tablica" Type="text" />
+  </EntityType>
+  <EntityContainer Name="haris_bazaModelStoreContainer">
+    <EntitySet Name="Evidencija" EntityType="Self.Evidencija" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParkingMesto" EntityType="Self.ParkingMesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vozila" EntityType="Self.Vozila" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="Hari_WPF.Forme.LoginPodaci"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hari_WPF.Forme"
+        mc:Ignorable="d"
+        Title="LoginPodaci" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"        
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Korisnicko Ime:" VerticalContentAlignment="Top"></Label>
+        <Label Grid.Row="2" Content="Sifra:" VerticalContentAlignment="Top"></Label>
+        <TextBox x:Name="txtKIme" Grid.Row="1" Text="{Binding txtKorisnickoIme,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" KeyUp="txtKIme_KeyUp" ></TextBox>
+        <TextBox x:Name="txtPass" Grid.Row="3" Text="{Binding txtSifra,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" KeyUp="txtPass_KeyUp">
+           
+        </TextBox>
+        <Button Grid.Row="4" Width="150" HorizontalAlignment="Left" Margin="10 10 10 10" Content="Ok" Click="Button_Click_1"></Button>
+        <Button Grid.Row="4" Width="150" HorizontalAlignment="Right" Margin="10 10 10 10" Content="Otkazi" Click="Button_Click"></Button>
+    </Grid>
+</Window>

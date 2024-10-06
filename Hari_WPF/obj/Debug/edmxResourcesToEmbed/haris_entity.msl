@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="haris_bazaModelStoreContainer" CdmEntityContainer="haris_bazaEntities">
+    <EntitySetMapping Name="Evidencijas">
+      <EntityTypeMapping TypeName="haris_bazaModel.Evidencija">
+        <MappingFragment StoreEntitySet="Evidencija">
+          <ScalarProperty Name="naplaceno" ColumnName="naplaceno" />
+          <ScalarProperty Name="vreme_provedeno" ColumnName="vreme_provedeno" />
+          <ScalarProperty Name="vreme_izlaza" ColumnName="vreme_izlaza" />
+          <ScalarProperty Name="vreme_ulaza" ColumnName="vreme_ulaza" />
+          <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+          <ScalarProperty Name="br_tablica" ColumnName="br_tablica" />
+          <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingMestoes">
+      <EntityTypeMapping TypeName="haris_bazaModel.ParkingMesto">
+        <MappingFragment StoreEntitySet="ParkingMesto">
+          <ScalarProperty Name="vreme_ulaska" ColumnName="vreme_ulaska" />
+          <ScalarProperty Name="reg_broj" ColumnName="reg_broj" />
+          <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+          <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+          <ScalarProperty Name="statusZauzetosti" ColumnName="statusZauzetosti" />
+          <ScalarProperty Name="lokacija" ColumnName="lokacija" />
+          <ScalarProperty Name="brojMesta" ColumnName="brojMesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vozilas">
+      <EntityTypeMapping TypeName="haris_bazaModel.Vozila">
+        <MappingFragment StoreEntitySet="Vozila">
+          <ScalarProperty Name="br_tablica" ColumnName="br_tablica" />
+          <ScalarProperty Name="tip_vozila" ColumnName="tip_vozila" />
+          <ScalarProperty Name="vlasnik" ColumnName="vlasnik" />
+          <ScalarProperty Name="sifra" ColumnName="sifra" />
+          <ScalarProperty Name="kor_ime" ColumnName="kor_ime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
